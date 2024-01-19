@@ -92,6 +92,80 @@ class PatientController {
         res.status(404).json(data);
     }
   }
+  async search(req, res) {
+    const { name } = req.params;
+    
+    const patients = await Patient.search(name);
+    if (patients.length > 0) {
+      const data = {
+        message: `Get Resource By resource name`,
+        data: patients,
+      };
+      res.status(200).json(data);
+    } else {
+      const data = {
+        message: `Resource not found`,
+      };
+      res.status(404).json(data);
+    }
+  }
+
+  async positive(req, res) {
+    const patients = await Patient.positive();
+
+    if (patients.length > 0) {
+        const data = {
+            message :`Get Resource`,
+            data : patients
+        };
+        res.status(200).json(data);
+    }
+    else {
+        const data = {
+        message : `Data is Empty`,
+    };
+
+        res.status(200).json(data);
+    }
+  }
+
+  async recovered(req, res) {
+    const patients = await Patient.recovered();
+
+    if (patients.length > 0) {
+        const data = {
+            message :`Get recovered Resource`,
+            data : patients
+        };
+        res.status(200).json(data);
+    }
+    else {
+        const data = {
+        message : `Data is Empty`,
+    };
+
+        res.status(200).json(data);
+    }
+  }
+
+  async dead(req, res) {
+    const patients = await Patient.dead();
+
+    if (patients.length > 0) {
+        const data = {
+            message :`Get dead Resource`,
+            data : patients
+        };
+        res.status(200).json(data);
+    }
+    else {
+        const data = {
+        message : `Data is Empty`,
+    };
+
+        res.status(200).json(data);
+    }
+  }
 }
 
 // membuat object PatientController

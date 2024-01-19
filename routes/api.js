@@ -1,4 +1,5 @@
 // import PatientController
+const PatientController = require("../controllers/PatientController")
 
 // import express
 const express = require("express");
@@ -17,21 +18,21 @@ router.get("/", (req, res) => {
 
 router.get(`/patients`, PatientController.index);
 
-// router.post(`/patients`, PatientController.store);
+router.post(`/patients`, PatientController.store);
 
-// router.put(`/patients/:id`, PatientController.update);
+router.put(`/patients/:id`, PatientController.update);
 
-// router.delete(`patients/:id`, PatientController.destroy);
+router.delete(`/patients/:id`, PatientController.destroy);
 
-// router.get(`/patients/:id`, patientController.show);
+router.get(`/patients/:id`, PatientController.show);
 
-// router.get(patients/search/:name, patientController.search);
+router.get(`patients/search/:name`, PatientController.search);
 
-// router.get(/patients/status/positive, patientController.positive);
+router.get(`/patients/status/positive`, PatientController.positive);
 
-// router.get(/patients/status/recovered, patientController.recovered);
+router.get(`/patients/status/recovered`, PatientController.recovered);
 
-// router.get(/patients/status/dead, patientController.dead);
+router.get(`/patients/status/dead`, PatientController.dead);
 
 // export router
 module.exports = router;
